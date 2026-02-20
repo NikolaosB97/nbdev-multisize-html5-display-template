@@ -1,0 +1,7 @@
+@import url("../../src/style.base.css");
+
+/* 160x600 overrides */
+.content { top: 70px; left: 14px; width: 132px; }
+.headline { font-size: 18px; line-height: 1.15; }
+.subline { font-size: 12px; margin-bottom: 16px; }
+.cta { padding: 8px 10px; font-size: 11px; }
