@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="ad.size" content="width=320,height=480">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Dynamic Header Mobile</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- Ad unit -->
+  <div id="adRoot" class="adRoot is-expanded">
+    <div class="stage">
+
+      <div class="bar">
+        <div class="logo">
+          <span class="logoMark"></span>
+          <span class="logoText">BurgerNova</span>
+        </div>
+        <div class="barRight">
+          <div class="tagline">Limited</div>
+          <div class="ctaSmall">Order</div>
+        </div>
+      </div>
+      <div class="videoLine" aria-hidden="true"></div>
+
+      <div class="hero">
+        <div class="headline">CRUNCH DEAL</div>
+        <div class="sub">2 menus · 1 price</div>
+
+        <div class="media">
+          <img
+            class="imgA"
+            src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop"
+            alt="Burger"
+          />
+          <img
+            class="imgB"
+            src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop&sat=-100"
+            alt="Burger alt"
+          />
+          <div class="price">CHF 9.90</div>
+        </div>
+
+        <div class="ctaBig">Get the offer</div>
+      </div>
+
+      <button id="closeBtn" class="closeBtn" aria-label="Close">×</button>
+      <button id="clickLayer" class="clickLayer" aria-label="Click"></button>
+    </div>
+  </div>
+
+  <!-- Fake publisher page content to test scroll -->
+  <main class="publisher">
+    <h1>Cucina Mobile</h1>
+    <p>Scroll per vedere il resize progressivo del Dynamic Header Mobile.</p>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

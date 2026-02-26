@@ -1,0 +1,207 @@
+:root{
+  --sb-w: 200px; /* Wider rail for a more realistic publisher layout */
+  --sb-h: 600px;
+
+  /* Slightly taller mini state so the collapsed layout still feels balanced */
+  --sb-mini-h: 160px;
+
+  --bg: #0b0b0f;
+  --brand: #ffcc33;
+  --brand2: #e43b2f;
+  --text: #ffffff;
+  --muted: rgba(255,255,255,.78);
+}
+
+html, body { margin:0; padding:0; font-family: Arial, sans-serif; background:#f4f4f4; }
+
+.page{
+  display:grid;
+  grid-template-columns: 220px minmax(600px, 1fr) 220px;
+  gap: 20px;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.left-rail, .right-rail{ min-height: 100vh; }
+.content{ background:#fff; border:1px solid #e7e7e7; border-radius: 16px; padding: 18px; }
+.block{ height: 900px; border-radius: 16px; background:#fafafa; border:1px solid #eee; margin-top: 14px; }
+
+.adRoot{
+  width: var(--sb-w);
+  height: var(--sb-h);
+  position: sticky;
+  top: 20px;
+  z-index: 9999;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.25);
+  background:
+    radial-gradient(550px 240px at 60% 20%, rgba(255,204,51,.22), transparent 60%),
+    radial-gradient(550px 240px at 40% 70%, rgba(228,59,47,.18), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  will-change: height, box-shadow, border-radius;
+}
+
+.adRoot.is-closed{ display:none; }
+
+.adInner{ position:absolute; inset:0; }
+
+/* Top bar */
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 10px 10px 8px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(90deg, rgba(255,204,51,.14), rgba(228,59,47,.10));
+}
+
+.brand{ display:flex; align-items:center; gap:8px; }
+.mark{ width:14px; height:14px; background: var(--brand); border-radius:5px; }
+.name{ font-weight:900; font-size:12px; letter-spacing:.3px; }
+
+.closeBtn{
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.25);
+  color:#fff;
+  font-size: 20px;
+  line-height: 26px;
+  cursor:pointer;
+  z-index: 40;
+}
+
+/* Animated red separator line (injected via JS) */
+.videoLine{
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  /* Positioned just below the main label */
+  top: 110px;  /* Adjust if typography or spacing changes */
+
+  height: 3px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 30;
+
+  background: linear-gradient(90deg,
+    #e43b2f 0%,
+    #ff3b2f 50%,
+    #e43b2f 100%
+  );
+
+  background-size: 200% 100%;
+  animation: videoLineMove 1s linear infinite;
+}
+@keyframes videoLineMove{
+  0%{ background-position: 0% 0%; }
+  100%{ background-position: 100% 0%; }
+}
+
+/* Mini CTA shown only in ultra-collapsed state */
+.miniCta{
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  /* Positioned directly below the red separator */
+  top: 120px;
+
+  height: 32px;
+  border: 0;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: .2px;
+
+  background: var(--brand2);
+  color: #fff;
+
+  opacity: 0;
+  transform: translate3d(0, -6px, 0) scale(0.98);
+  pointer-events: none;
+
+  box-shadow: 0 10px 22px rgba(0,0,0,.35);
+  z-index: 31;
+}
+
+.adRoot.is-ultra .miniCta{
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  pointer-events: auto;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+/* Main */
+.hero{
+  padding: 12px 10px 12px;
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+  will-change: transform;
+}
+
+.kicker{
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--muted);
+  letter-spacing: .6px;
+}
+
+.headline{
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+  will-change: transform;
+}
+
+.sub{ color: var(--muted); font-size: 12px; will-change: transform; }
+
+.imgWrap{
+  height: 360px; /* This value is dynamically reduced via JS on scroll */
+  border-radius: 14px;
+  overflow:hidden;
+  box-shadow: 0 18px 35px rgba(0,0,0,.45);
+  will-change: height, border-radius;
+}
+
+.imgWrap img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  will-change: transform, opacity;
+  transform: translate3d(0,0,0);
+}
+
+.cta{
+  margin-top: auto;
+  background: var(--brand2);
+  color:#fff;
+  font-weight: 900;
+  text-align:center;
+  padding: 12px 12px;
+  border-radius: 16px;
+  font-size: 16px;
+  will-change: transform, opacity;
+}
+
+/* Transparent click layer used for exit tracking */
+.clickLayer{
+  position:absolute;
+  inset:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  z-index: 5;
+}
+
+/* When collapsed, we reveal the red separator line */
+.adRoot.is-collapsed .videoLine{
+  opacity: 1;
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dynamic Header Desktop</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- Main ad container -->
+  <div id="adRoot" class="adRoot is-expanded">
+    <div class="stage">
+
+      <div class="bar">
+        <div class="logo">
+          <div class="logoMark"></div>
+          <div class="logoText">BurgerNova</div>
+        </div>
+
+        <div class="barRight">
+          <div class="tagline">New limited menu</div>
+          <div class="ctaSmall">Order now</div>
+        </div>
+      </div>
+
+      <!-- Subtle animated line (visible only when the unit collapses) -->
+      <div class="videoLine" aria-hidden="true"></div>
+
+      <button id="closeBtn" class="closeBtn" aria-label="Close">×</button>
+
+      <div class="hero">
+        <!-- Left side: hero video (full width when expanded, becomes left column on collapse) -->
+        <div class="mediaWide">
+          <video autoplay muted loop playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;">
+  <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+</video>
+
+          <!-- Small video label badge -->
+          <div class="videoBadge">VIDEO</div>
+        </div>
+
+        <!-- Right side: image panel and copy (appears only after collapse) -->
+        <div class="panelRight">
+          <div class="panelInner">
+            <div class="panelTop">
+              <div class="panelBrand">Special Offer</div>
+              <div class="panelPrice">
+                CHF <strong>21’990.-</strong>
+                <span class="panelSmall">or 199.-/month</span>
+              </div>
+            </div>
+
+            <div class="panelImgWrap">
+              <img class="panelImg" src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop"  alt="Offer visual" />
+            </div>
+
+            <div class="panelCta">Try it now</div>
+          </div>
+        </div>
+
+        <!-- Full click area overlay -->
+        <button id="clickLayer" class="clickLayer" aria-label="Clickthrough"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simulated publisher page content (for scroll testing) -->
+ <div class="publisher">
+  <h1>Publisher Page</h1>
+  <p>Scroll to trigger collapse (video slides left, panel appears right).</p>
+  <div class="block"></div>
+  <div class="block"></div>
+  <div class="block"></div>
+</div>
+
+  <!-- External libraries (GSAP) and main script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

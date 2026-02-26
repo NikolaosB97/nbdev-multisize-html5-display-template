@@ -1,0 +1,16 @@
+{
+  "name": "drop8-framework-v2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "zip:sitebar": "node tools/zip.js sitebar-desktop",
+    "zip:dhdesk": "node tools/zip.js dynamic-head-desktop",
+    "zip:dhmob": "node tools/zip.js dynamic-head-mobile",
+    "zip:halfpage": "node tools/zip.js halfpage-ad-mobile",
+    "zip:wideboard": "node tools/zip.js wideboard-xl-desktop",
+    "zip:all": "node tools/zip-all.js"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1"
+  }
+}

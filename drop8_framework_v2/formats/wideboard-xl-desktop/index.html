@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wideboard XL Desktop</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- Main ad container -->
+  <div id="adRoot" class="adRoot is-ready" aria-label="Wideboard XL Desktop">
+    <div class="stage">
+
+      <!-- Background image layer -->
+      <div class="bg">
+        <img
+          class="bgImg"
+          src="https://images.unsplash.com/photo-1550317138-10000687a72b?auto=format&fit=crop&w=1600&q=70"
+          alt=""
+        />
+        <div class="bgShade"></div>
+      </div>
+
+
+
+      <!-- Content -->
+      <div class="content">
+        <div class="left">
+          <div class="brandRow">
+            <div class="brandMark"></div>
+            <div class="brandName">NEW CRUNCH BOX</div>
+          </div>
+
+          <h1 class="headline fxText fxText--1" aria-label="Bigger. Crunchier.">
+            <span class="word word--left">Bigger.</span>
+            <span class="word word--right">Crunchier.</span>
+          </h1>
+          <div class="sub">Limited drop • Delivered fast</div>
+
+          <div class="ctaRow">
+            <div class="price"><span class="from">from</span> CHF <strong>9.90</strong></div>
+            <div class="cta">Order now</div>
+          </div>
+        </div>
+
+        <div class="right">
+          <img
+            class="product"
+            src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1200&q=70"
+            alt=""
+          />
+          <div class="badge">XL</div>
+        </div>
+      </div>
+
+      <!-- Full-surface click layer -->
+      <button id="clickLayer" class="clickLayer" aria-label="Clickthrough"></button>
+    </div>
+  </div>
+
+  <!-- Simulated publisher page content (for local testing) -->
+  <div class="publisher">
+    <div class="block"></div>
+  </div>
+
+  <!-- External libraries and main script -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

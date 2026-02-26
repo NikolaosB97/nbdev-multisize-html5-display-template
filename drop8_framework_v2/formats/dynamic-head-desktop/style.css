@@ -1,0 +1,170 @@
+:root{
+  --w: 970px;
+  --h-expanded: 300px;
+  --h-collapsed: 90px;
+
+  --bg: #0b0b0f;
+  --brand: #ffcc33;      /* Warm highlight (gold) */
+  --brand2: #e43b2f;     /* Accent / CTA red */
+  --text: #ffffff;
+  --muted: rgba(255,255,255,.75);
+}
+
+html { margin:0; width:100%; height:100%; overflow-y: scroll; background:#f6f6f6; }
+body { margin:0; min-height:100%; overflow: visible; background:#f6f6f6; }
+/* No reserved padding: the header stays in the normal flow and uses sticky positioning */
+body { padding-top: 0; }
+.adRoot{
+  width: var(--w);
+  height: var(--h-expanded);
+  background: radial-gradient(1200px 400px at 70% 30%, rgba(255,204,51,.22), transparent 60%),
+              radial-gradient(900px 400px at 20% 70%, rgba(228,59,47,.18), transparent 55%),
+              var(--bg);
+  position: sticky;
+  top: 0;
+  margin: 0 auto;
+  will-change: height;
+  z-index: 9999;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  font-family: Arial, sans-serif;
+  color: var(--text);
+}
+
+.stage{ position:absolute; inset:0; overflow:hidden; border-radius: 0; }
+
+
+.bar{
+  position:absolute;
+  left:0; right:0; top:0;
+  height: var(--h-collapsed);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 0 22px;
+  box-sizing:border-box;
+  background: linear-gradient(90deg, rgba(255,204,51,.18), rgba(228,59,47,.12));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.logo{ display:flex; align-items:center; gap:10px; }
+.logoMark{
+  width:18px; height:18px;
+  background: var(--brand);
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.35) inset;
+}
+.logoText{ font-weight:800; letter-spacing:.5px; font-size:18px; }
+.barRight{ display:flex; align-items:center; gap:16px; }
+.tagline{ color: var(--muted); font-size:14px; }
+.ctaSmall{
+  background: var(--brand2);
+  color:#fff;
+  font-weight:700;
+  font-size:14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.hero{
+  position:absolute;
+  left:0; right:0;
+  top: var(--h-collapsed);
+  bottom:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 18px 26px 22px;
+  box-sizing:border-box;
+}
+
+.heroLeft{ max-width: 58%; }
+.headline{
+  font-size: 52px;
+  line-height: .95;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+.sub{
+  margin-top: 10px;
+  font-size: 18px;
+  color: var(--muted);
+}
+.ctaBig{
+  display:inline-block;
+  margin-top: 16px;
+  background: var(--brand);
+  color: #111;
+  font-weight: 900;
+  padding: 12px 16px;
+  border-radius: 14px;
+}
+
+.heroRight{
+  position:relative;
+  width: 260px;
+  height: 210px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.product{
+  width: 160px;
+  height: 150px;
+  position:relative;
+  filter: drop-shadow(0 14px 28px rgba(0,0,0,.4));
+}
+.bunTop{
+  position:absolute; left:0; right:0; top:0;
+  height: 55px;
+  background: linear-gradient(180deg, #ffcc66, #e3a24b);
+  border-radius: 80px 80px 35px 35px;
+}
+.patty{
+  position:absolute; left:8px; right:8px; top:58px;
+  height: 40px;
+  background: linear-gradient(180deg, #6b3b22, #3a1f12);
+  border-radius: 20px;
+}
+.bunBottom{
+  position:absolute; left:6px; right:6px; top:102px;
+  height: 48px;
+  background: linear-gradient(180deg, #f0b25d, #d6953f);
+  border-radius: 28px 28px 60px 60px;
+}
+
+.price{
+  position:absolute;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.14);
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.closeBtn{
+  position:absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  font-size: 22px;
+  cursor:pointer;
+  z-index: 6;
+}
+
+.clickLayer{
+  position:absolute;
+  inset:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  z-index: 5;
+}

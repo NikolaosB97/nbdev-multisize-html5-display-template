@@ -1,0 +1,280 @@
+:root{
+  --w: 970px;
+  --h-expanded: 620px;
+  --h-collapsed: 460px;
+  --bar-h: 0px;
+
+  --bg: #0b0b0f;
+  --brand: #ffcc33;      /* Primary highlight (warm gold) */
+  --brand2: #e43b2f;     /* Accent red (CTA + emphasis) */
+  --text: #ffffff;
+  --muted: rgba(255,255,255,.75);
+}
+
+html{
+  margin: 0;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  background: #f6f6f6;
+}
+body{
+  margin: 0;
+  min-height: 220vh; /* Extra page height so we can test scroll/collapse locally */
+  overflow: visible;
+  background: #f6f6f6;
+  font-family: Arial, sans-serif;
+}
+
+/* Prevent horizontal overflow on wide viewports */
+html, body { overflow-x: hidden; }
+
+/* No extra top padding: the unit uses sticky positioning in normal document flow */
+body { padding-top: 0; }
+
+.adRoot{
+  width: min(100vw, var(--w));
+  max-width: var(--w);
+  height: var(--h-expanded);
+
+  /* Let the media (video + image) own the entire surface */
+  background: #000;
+
+  position: sticky;
+  top: 0; /* stick to the top of the viewport */
+  margin: 0 auto;
+  will-change: height;
+  z-index: 9999;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  color: var(--text);
+  overflow: hidden;
+}
+
+.stage{ position:absolute; inset:0; overflow:hidden; border-radius: 0; }
+
+.bar{ display:none !important; }
+
+.logo{ display:flex; align-items:center; gap:10px; }
+.logoMark{
+  width:18px; height:18px;
+  background: var(--brand);
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.35) inset;
+}
+.logoText{ font-weight:800; letter-spacing:.5px; font-size:18px; }
+
+.barRight{ display:flex; align-items:center; gap:16px; }
+.tagline{ color: var(--muted); font-size:14px; }
+.ctaSmall{
+  background: var(--brand2);
+  color:#fff;
+  font-weight:700;
+  font-size:14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+/* Optional progress line (disabled here; useful in some publisher specs) */
+.videoLine{ display:none !important; }
+@keyframes videoLineMove{
+  0%{ background-position: 0% 0%; }
+  100%{ background-position: 100% 0%; }
+}
+.closeBtn{
+  position:absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  font-size: 22px;
+  cursor:pointer;
+  z-index: 10;
+}
+
+/* Hero area (full-bleed stage, bar is disabled in this variant) */
+.hero{
+  position:absolute;
+  inset: 0;
+  display:flex;
+  align-items: stretch;
+  gap: 0;
+  box-sizing:border-box;
+  z-index: 2;
+  height: 100%;
+}
+
+/* Left side: full-height hero video */
+.mediaWide{
+  position: relative;
+  height: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  background: #000;
+}
+.mediaWide video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;          /* Fill the frame (no letterboxing) */
+  object-position: center;    /* Keep the subject centered */
+}
+.videoBadge{
+  position:absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.14);
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .6px;
+}
+
+/* Right side: image panel (revealed on collapse) */
+.panelRight{
+  height: 100%;
+  flex: 0 0 0%;
+  width: 0%;
+  min-width: 0;
+  overflow: hidden;
+  background: #111;
+  opacity: 0;
+  pointer-events: none;
+  position: relative;
+}
+
+.panelInner{
+  position: relative;
+  height: 100%;
+  display:flex;
+  flex-direction:column;
+  padding: 0;
+  box-sizing:border-box;
+}
+
+.panelTop{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 16px;
+}
+
+.panelBrand{
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: .3px;
+  opacity: .85;
+}
+
+.panelPrice{
+  text-align:right;
+  font-size: 14px;
+}
+.panelPrice strong{
+  font-size: 26px;
+  letter-spacing: -0.4px;
+}
+.panelSmall{
+  display:block;
+  opacity: .75;
+  margin-top: 2px;
+}
+
+.panelImgWrap{
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  overflow:hidden;
+  background: #e9e9ee;
+}
+.panelImg{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.panelCta{
+  background: #f1ff4d;
+  color:#111;
+  font-weight: 900;
+  text-align:center;
+  padding: 12px 12px;
+  border-radius: 12px;
+}
+
+/* Default state: expanded (full video). Also acts as a safe fallback before JS toggles classes. */
+.mediaWide{
+  flex: 1 1 100%;
+}
+.panelRight{
+  flex: 0 0 0%;
+  width: 0%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Expanded: full-width video, right panel hidden */
+.adRoot.is-expanded .mediaWide{
+  flex: 1 1 100%;
+}
+.adRoot.is-expanded .panelRight{
+  flex: 0 0 0%;
+  width: 0%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Collapsed: clean 50/50 split (video left + image right) */
+.adRoot.is-collapsed .mediaWide{
+  flex: 0 0 50%;
+}
+.adRoot.is-collapsed .panelRight{
+  flex: 0 0 50%;
+  width: 50%;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* In collapsed we keep the right side image-only (no extra UI) */
+.adRoot.is-collapsed .panelTop,
+.adRoot.is-collapsed .panelCta{
+  display: none;
+}
+
+.adRoot.is-collapsed .panelInner{
+  padding: 0;
+}
+
+/* Full-surface click layer */
+.clickLayer{
+  position:absolute;
+  inset:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  z-index: 3;
+}
+
+/* Mock publisher content (only for local scroll testing) */
+.publisher{
+  position: relative;
+  width: min(100vw, var(--w));
+  margin: 0 auto;
+  padding: 18px 14px 60px;
+  color:#111;
+}
+.publisher .block{
+  height: 1700px;
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius: 16px;
+  margin-top: 14px;
+}

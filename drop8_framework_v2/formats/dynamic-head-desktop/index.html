@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <!-- Expanded size, DV360 uses this -->
+  <meta name="ad.size" content="width=970,height=300">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dynamic Header Desktop</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="adRoot" class="adRoot is-expanded">
+    <div class="stage">
+
+      <!-- top bar (collapsed state) -->
+      <div class="bar">
+        <div class="logo">
+          <span class="logoMark"></span>
+          <span class="logoText">BurgerNova</span>
+        </div>
+        <div class="barRight">
+          <div class="tagline">New limited menu</div>
+          <div class="ctaSmall">Order now</div>
+        </div>
+      </div>
+
+      <!-- expanded hero -->
+      <div class="hero">
+        <div class="heroLeft">
+          <div class="headline">THE CRUNCH DEAL</div>
+          <div class="sub">2 menus · 1 price · limited time</div>
+          <div class="ctaBig">Get the offer</div>
+        </div>
+
+        <div class="heroRight">
+          <img 
+            src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop" 
+            alt="Burger" 
+            style="width:200px; height:200px; object-fit:cover; border-radius:20px; box-shadow:0 20px 40px rgba(0,0,0,.45);"
+          />
+          <div class="price">CHF 9.90</div>
+        </div>
+      </div>
+
+      <!-- close button -->
+      <button id="closeBtn" class="closeBtn" aria-label="Close">×</button>
+
+      <!-- click layer -->
+      <button id="clickLayer" class="clickLayer" aria-label="Click"></button>
+    </div>
+  </div>
+
+  <!-- Mini "publisher" cooking page content (scrollable) -->
+  <main style="width:970px; margin:0 auto; padding:28px 0 60px; font-family: Arial, sans-serif; color:#111;">
+    <header style="padding:18px 18px 8px;">
+      <h1 style="margin:0; font-size:34px; letter-spacing:-0.3px;">Cucina di Montagna</h1>
+      <p style="margin:10px 0 0; color:#444; line-height:1.5;">
+        Ricette veloci e comfort food — perfette per testare un <strong>Dynamic Header</strong> come in un sito publisher.
+        Scrolla per vedere il collapse on scroll.
+      </p>
+    </header>
+
+    <section style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px; padding:18px;">
+      <article style="background:#fff; border:1px solid #e6e6e6; border-radius:14px; padding:16px; box-shadow: 0 6px 18px rgba(0,0,0,.05);">
+        <div style="font-weight:800; font-size:18px;">Polenta con Funghi</div>
+        <div style="margin-top:8px; color:#555; line-height:1.45;">Cremosa, calda, con porcini e un filo d’olio.</div>
+        <ul style="margin:12px 0 0; padding-left:18px; color:#444;">
+          <li>20 min</li>
+          <li>1 padella</li>
+          <li>Super comfort</li>
+        </ul>
+      </article>
+
+      <article style="background:#fff; border:1px solid #e6e6e6; border-radius:14px; padding:16px; box-shadow: 0 6px 18px rgba(0,0,0,.05);">
+        <div style="font-weight:800; font-size:18px;">Pasta “Creamy” Speck</div>
+        <div style="margin-top:8px; color:#555; line-height:1.45;">Speck croccante, crema leggera, pepe nero.</div>
+        <ul style="margin:12px 0 0; padding-left:18px; color:#444;">
+          <li>15 min</li>
+          <li>2 ingredienti top</li>
+          <li>Perfetta dopo il lavoro</li>
+        </ul>
+      </article>
+
+      <article style="background:#fff; border:1px solid #e6e6e6; border-radius:14px; padding:16px; box-shadow: 0 6px 18px rgba(0,0,0,.05);">
+        <div style="font-weight:800; font-size:18px;">Tiramisù Express</div>
+        <div style="margin-top:8px; color:#555; line-height:1.45;">Bicchierini veloci, cacao, crema setosa.</div>
+        <ul style="margin:12px 0 0; padding-left:18px; color:#444;">
+          <li>10 min</li>
+          <li>No forno</li>
+          <li>Effetto wow</li>
+        </ul>
+      </article>
+    </section>
+
+    <section style="padding:0 18px 18px;">
+      <div style="background: linear-gradient(90deg, rgba(255,204,51,.18), rgba(228,59,47,.10)); border:1px solid #e8e8e8; border-radius:16px; padding:18px;">
+        <h2 style="margin:0; font-size:22px;">Menù della Settimana</h2>
+        <p style="margin:8px 0 0; color:#444; line-height:1.5;">
+          Un esempio di contenuto editoriale lungo: lista, paragrafi e blocchi ripetuti per creare scroll reale.
+        </p>
+      </div>
+    </section>
+
+    <!-- Long content blocks to guarantee scroll -->
+    <section style="padding:0 18px;">
+      <div style="height:820px; background:#fff; border:1px solid #e6e6e6; border-radius:16px; padding:18px; margin-bottom:18px; box-shadow: 0 6px 18px rgba(0,0,0,.04); box-sizing:border-box;">
+        <h3 style="margin:0 0 10px;">Guida: come fare un soffritto perfetto</h3>
+        <p style="margin:0; color:#444; line-height:1.6;">
+          Testo lungo simulato… (immagina qui una guida completa con tips, temperature, tempi, ecc.)
+          Continua a scrollare per testare il comportamento del Dynamic Header.
+        </p>
+      </div>
+
+      <div style="height:820px; background:#fff; border:1px solid #e6e6e6; border-radius:16px; padding:18px; margin-bottom:18px; box-shadow: 0 6px 18px rgba(0,0,0,.04); box-sizing:border-box;">
+        <h3 style="margin:0 0 10px;">Ricetta: brasato facile (step-by-step)</h3>
+        <p style="margin:0; color:#444; line-height:1.6;">
+          Testo lungo simulato… ingredienti, passaggi, consigli e varianti.
+        </p>
+      </div>
+
+      <div style="height:820px; background:#fff; border:1px solid #e6e6e6; border-radius:16px; padding:18px; box-shadow: 0 6px 18px rgba(0,0,0,.04); box-sizing:border-box;">
+        <h3 style="margin:0 0 10px;">Dolci: crema, cacao e croccante</h3>
+        <p style="margin:0; color:#444; line-height:1.6;">
+          Testo lungo simulato… idee dessert, impiattamento e timing.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

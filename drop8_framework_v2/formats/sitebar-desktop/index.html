@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="ad.size" content="width=160,height=600">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitebar Desktop</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- Fake publisher layout -->
+  <div class="page">
+    <aside class="left-rail">
+      <!-- Sitebar Ad -->
+      <div id="adRoot" class="adRoot is-open">
+        <div class="adInner">
+          <div class="top">
+            <div class="brand">
+              <span class="mark"></span>
+              <span class="name">BurgerNova</span>
+            </div>
+            <button id="closeBtn" class="closeBtn" aria-label="Close">×</button>
+          </div>
+
+          <div class="hero">
+            <div class="kicker">NEW</div>
+            <div class="headline">CRUNCH BOX</div>
+            <div class="sub">Limited offer</div>
+            <div class="imgWrap">
+              <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=900&auto=format&fit=crop" alt="Burger" />
+            </div>
+            <div class="cta">Order now</div>
+          </div>
+
+          <button id="clickLayer" class="clickLayer" aria-label="Click"></button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <h1>Publisher Page</h1>
+      <p>Scroll per testare sticky + close.</p>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+    </main>
+
+    <aside class="right-rail"></aside>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
